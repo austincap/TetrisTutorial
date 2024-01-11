@@ -1,0 +1,58 @@
+[gd_scene load_steps=10 format=3 uid="uid://bblb0i57yr38"]
+
+[ext_resource type="Shader" path="res://Scenes/fire.gdshader" id="1_higx7"]
+[ext_resource type="Script" path="res://Scripts/firebehavior.gd" id="1_wimj4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5begg"]
+shader = ExtResource("1_higx7")
+
+[sub_resource type="Gradient" id="Gradient_pdu8k"]
+offsets = PackedFloat32Array(0, 0.496296, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.952941, 0.592157, 0.443137, 1, 1, 0, 0.0823529, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_l7236"]
+gradient = SubResource("Gradient_pdu8k")
+
+[sub_resource type="Curve" id="Curve_hdrjm"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.975904, 0.252632), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_o0hbk"]
+curve = SubResource("Curve_hdrjm")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kkiob"]
+particle_flag_disable_z = true
+gravity = Vector3(0, -30, 0)
+orbit_velocity_min = -0.25
+orbit_velocity_max = 0.1
+scale_max = 50.0
+scale_curve = SubResource("CurveTexture_o0hbk")
+color_ramp = SubResource("GradientTexture1D_l7236")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xyffs"]
+size = Vector2(3.5, 3.5)
+
+[node name="fire" type="Node2D"]
+scale = Vector2(5, 5)
+script = ExtResource("1_wimj4")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+material = SubResource("ShaderMaterial_5begg")
+amount = 7
+process_material = SubResource("ParticleProcessMaterial_kkiob")
+draw_order = 2
+trail_sections = 6
+
+[node name="FireCoreArea" type="Area2D" parent="." groups=["fireparticle"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FireCoreArea"]
+shape = SubResource("RectangleShape2D_xyffs")
+
+[node name="FireAdjacentArea" type="Area2D" parent="." groups=["fireadjacentarea"]]
+scale = Vector2(3.04, 3.12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FireAdjacentArea"]
+shape = SubResource("RectangleShape2D_xyffs")
+
+[connection signal="area_entered" from="FireAdjacentArea" to="." method="_on_fire_adjacent_area_area_entered"]
+[connection signal="area_exited" from="FireAdjacentArea" to="." method="_on_fire_adjacent_area_area_exited"]

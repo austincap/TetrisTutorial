@@ -6,7 +6,6 @@
 script = ExtResource("1_j3a81")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -14,6 +13,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+visible = false
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer"]
@@ -34,4 +34,36 @@ text = "GAME OVER"
 layout_mode = 2
 text = "RESTART"
 
+[node name="Button" type="Button" parent="."]
+offset_left = 2.0
+offset_top = 315.0
+offset_right = 10.0
+offset_bottom = 323.0
+scale = Vector2(4.51485, 3.34197)
+
+[node name="Label" type="Label" parent="Button"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+scale = Vector2(0.162913, 0.210873)
+text = "wind"
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 6.0
+offset_top = 364.0
+offset_right = 14.0
+offset_bottom = 372.0
+scale = Vector2(4.51485, 3.34197)
+
+[node name="Label" type="Label" parent="Button2"]
+layout_mode = 0
+offset_left = 1.55044
+offset_top = 1.79538
+offset_right = 66.5504
+offset_bottom = 27.7954
+scale = Vector2(0.162913, 0.210873)
+text = "fire"
+
 [connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_windbutton_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

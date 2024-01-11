@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://d0p1lkf4un2xo"]
+
+[ext_resource type="Script" path="res://Scenes/explosive_sap.gd" id="1_r21fi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o3fqb"]
+
+[sub_resource type="Gradient" id="Gradient_0lmkr"]
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ets6y"]
+frequency = 0.0596
+fractal_octaves = 7
+fractal_lacunarity = 2.605
+fractal_gain = 0.73
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_s3sor"]
+width = 202
+height = 302
+color_ramp = SubResource("Gradient_0lmkr")
+noise = SubResource("FastNoiseLite_ets6y")
+
+[node name="explosive_sap" type="Node2D"]
+script = ExtResource("1_r21fi")
+
+[node name="Area2D" type="Area2D" parent="." groups=["explosive_sap"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_o3fqb")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(0, 9.53674e-07)
+color = Color(0.886275, 0.960784, 0.0235294, 1)
+texture = SubResource("NoiseTexture2D_s3sor")
+texture_offset = Vector2(10.135, 11.07)
+texture_scale = Vector2(8.92, 8.92)
+polygon = PackedVector2Array(-11, 10, -11, -11, 11, -11, 11, 10, 0, 10)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

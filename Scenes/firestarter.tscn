@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://be1uv6l2h5f25"]
+
+[ext_resource type="Script" path="res://Scenes/firestarter.gd" id="1_5kkaj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1q7kx"]
+
+[node name="firestarter" type="Node2D"]
+script = ExtResource("1_5kkaj")
+
+[node name="Area2D" type="Area2D" parent="." groups=["firestarter"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_1q7kx")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.403922, 0.278431, 0.129412, 1)
+polygon = PackedVector2Array(-9, -9, -10, 10, 10, 10, 10, -10)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
