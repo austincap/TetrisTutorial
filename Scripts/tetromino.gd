@@ -27,6 +27,7 @@ func _ready():
 	tetromino_cells = Shared.cells[tetromino_data.tetromino_type]
 	
 	for cell in tetromino_cells:
+		print("making tetromino")
 		var piece = piece_scene.instantiate() as Piece
 		pieces.append(piece)
 		add_child(piece)

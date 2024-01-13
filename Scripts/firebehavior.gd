@@ -1,5 +1,5 @@
 extends Node
-var firehotness = 1
+var fireoxygenation = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,12 +14,16 @@ func _process(delta):
 func _on_fire_adjacent_area_area_entered(area):
 	if area.is_in_group("wind"):
 		print("wind consumed by fire")
-		firehotness += 1
+		fireoxygenation += 1
 		area.windpower -= 1
+	elif area.is_in_group("wood"):
+		print("wind consumed by fire")
 
 
 func _on_fire_adjacent_area_area_exited(area):
 	if area.is_in_group("wind"):
 		print("wind consumed by fire")
-		firehotness += 1
-		area.windpower -= 2
+		fireoxygenation += 1
+		area.windpower -= 1
+	elif area.is_in_group("wood"):
+		

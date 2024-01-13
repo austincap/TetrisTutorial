@@ -7,7 +7,10 @@ class_name UI
 @onready var firestarterscene = preload("res://Scenes/firestarter.tscn")
 @onready var explosivescene = preload("res://Scenes/explosive_sap.tscn")
 @onready var firescene = preload("res://Scenes/fire.tscn")
-
+@onready var piece_spawner = preload("res://Scripts/piece_spawner.gd")
+@onready var board = preload("res://Scripts/board.gd")
+@onready var stickmaker = preload("res://Scenes/stickmaker.tscn")
+var boardinstance = board
 
 func show_game_over():
 	center_container.show()
@@ -26,12 +29,16 @@ func _on_windbutton_pressed():
 	tween.play()
 
 
-func _on_button_2_pressed():
+func _on_fire_button_pressed():
 	var fire = firescene.instantiate()
 	fire.position = Vector2(220,100)
 	add_child(fire)
 
 
 
-func _on_button_3_pressed():
-	pass # Replace with function body.
+func _on_stick_button_pressed():
+	var stick = stickmaker.instantiate()
+	add_child(stick)
+	
+
+

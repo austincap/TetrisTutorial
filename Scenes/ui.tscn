@@ -34,28 +34,28 @@ text = "GAME OVER"
 layout_mode = 2
 text = "RESTART"
 
-[node name="Button" type="Button" parent="."]
+[node name="WindButton" type="Button" parent="."]
 offset_left = 2.0
 offset_top = 315.0
 offset_right = 10.0
 offset_bottom = 323.0
 scale = Vector2(4.51485, 3.34197)
 
-[node name="Label" type="Label" parent="Button"]
+[node name="Label" type="Label" parent="WindButton"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 scale = Vector2(0.162913, 0.210873)
 text = "wind"
 
-[node name="Button2" type="Button" parent="."]
+[node name="FireButton" type="Button" parent="."]
 offset_left = 6.0
 offset_top = 364.0
 offset_right = 14.0
 offset_bottom = 372.0
 scale = Vector2(4.51485, 3.34197)
 
-[node name="Label" type="Label" parent="Button2"]
+[node name="Label" type="Label" parent="FireButton"]
 layout_mode = 0
 offset_left = 1.55044
 offset_top = 1.79538
@@ -64,6 +64,23 @@ offset_bottom = 27.7954
 scale = Vector2(0.162913, 0.210873)
 text = "fire"
 
+[node name="StickButton" type="Button" parent="."]
+offset_left = 9.0
+offset_top = 423.0
+offset_right = 17.0
+offset_bottom = 431.0
+scale = Vector2(4.51485, 3.34197)
+
+[node name="Label" type="Label" parent="StickButton"]
+layout_mode = 0
+offset_left = 1.55044
+offset_top = 1.79538
+offset_right = 66.5504
+offset_bottom = 27.7954
+scale = Vector2(0.162913, 0.210873)
+text = "stick"
+
 [connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Button" to="." method="_on_windbutton_pressed"]
-[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="WindButton" to="." method="_on_windbutton_pressed"]
+[connection signal="pressed" from="FireButton" to="." method="_on_fire_button_pressed"]
+[connection signal="pressed" from="StickButton" to="." method="_on_stick_button_pressed"]

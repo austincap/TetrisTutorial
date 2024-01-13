@@ -17,6 +17,7 @@ var tetrominos: Array[Tetromino] = []
 @export var tetromino_scene: PackedScene
 
 func spawn_tetromino(type: Shared.Tetromino, is_next_piece, spawn_position):
+	print("spawn tetromino")
 	var tetromino_data = Shared.data[type]
 	var tetromino = tetromino_scene.instantiate() as Tetromino
 	
@@ -46,10 +47,11 @@ func on_tetromino_locked(tetromino: Tetromino):
 
 	
 func check_game_over():
-		for piece in get_all_pieces():
-			var y_location = piece.global_position.y
-			if y_location == -456:
-				game_over.emit()
+	print("check game over")
+	for piece in get_all_pieces():
+		var y_location = piece.global_position.y
+		if y_location == -456:
+			game_over.emit()
 	
 func add_tetromino_to_lines(tetromino: Tetromino):
 	var tetromino_pieces = tetromino.get_children().filter(func (c): return c is Piece)

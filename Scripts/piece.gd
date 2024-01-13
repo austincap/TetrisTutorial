@@ -4,6 +4,7 @@ class_name  Piece
 
 @onready var sprite_2d = $Sprite2D
 @onready var collision_shape_2d = $CollisionShape2D
+var woodpiece_health = 4
 
 func set_texture(texture: Texture2D):
 	sprite_2d.texture = texture

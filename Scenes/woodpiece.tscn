@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhi5yueqgm1ob"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mh2q1"]
+
+[node name="woodpiece" type="RigidBody2D" groups=["wood"]]
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_mh2q1")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.298039, 0.231373, 0.0352941, 1)
+polygon = PackedVector2Array(-10, 9, -10, -11, 10, -11, 10, 10)
