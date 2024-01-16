@@ -10,6 +10,7 @@ class_name UI
 @onready var piece_spawner = preload("res://Scripts/piece_spawner.gd")
 @onready var board = preload("res://Scripts/board.gd")
 @onready var stickmaker = preload("res://Scenes/stickmaker.tscn")
+@onready var woodpiece_scene = preload("res://Scenes/woodpiece.tscn")
 var boardinstance = board
 
 func show_game_over():
@@ -37,8 +38,67 @@ func _on_fire_button_pressed():
 
 
 func _on_stick_button_pressed():
-	var stick = stickmaker.instantiate()
-	add_child(stick)
+	#var stick = stickmaker.instantiate()
+	#add_child(stick)
+	var unrolled_3x3_array = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+	#var unrolled_3x3_array = [0,0,0,0,0,0,0,0,0]
+	var arraylength = len(unrolled_3x3_array)
+	print(arraylength)
+	var rng = RandomNumberGenerator.new()
+	print("MAKE NEW STICK")
+	#start at top left of rolled array
+	for n in range(arraylength):
+		if rng.randf() > 0.4:
+			unrolled_3x3_array[n] = 1
+		else:
+			unrolled_3x3_array[n] = 0
+	#var newstick = Node2D.new()
+	var newstick = Skeleton2D.new()
+	add_child(newstick)
+	newstick.global_position = Vector2(0, 0)
+	var nextpiece_position = Vector2(0, 0)
+	var lastpiece = null
+	for x in range(arraylength):
+		if unrolled_3x3_array[x] == 1:
+			var woodpiece = woodpiece_scene.instantiate()
+			woodpiece.global_position = nextpiece_position
+			newstick.add_child(woodpiece)
+			#newstick.global_position = nextpiece_position
+			if lastpiece != null:
+				#var joint = DampedSpringJoint2D.new()
+				var joint = PinJoint2D.new()
+				add_child(joint)
+				#joint.damping = 0.1
+				#joint.length = 20.0
+				#joint.rest_length = 10.0
+				#joint.stiffness = 20.0
+				#joint.global_position = nextpiece_position
+				#joint.set_angular_limit_enabled ( true )
+				#joint.angular_limit_lower = 20.0
+				#joint.angular_limit_upper = 60.0
+				#joint.softness = 0.5
+				#joint.length = 30
+				joint.disable_collision = true
+				joint.set_node_a(lastpiece.get_path())
+				joint.set_node_b(woodpiece.get_path())
+			else:
+				lastpiece = woodpiece
+		else:
+			pass
+		if (((x+1)%5) == 0):
+			print("end of row")
+			nextpiece_position += Vector2(0.0, 20.0)
+			nextpiece_position -= Vector2(20.0, 0.0)*5
+		else:
+			print("move right")
+			nextpiece_position += Vector2(20.0, 0.0)
+	newstick.global_position = Vector2(140,100)
+
+	return newstick
+
+
+
+
 	
 
 

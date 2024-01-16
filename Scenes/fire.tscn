@@ -3,6 +3,8 @@
 [ext_resource type="Shader" path="res://Scenes/fire.gdshader" id="1_higx7"]
 [ext_resource type="Script" path="res://Scripts/firebehavior.gd" id="1_wimj4"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xyffs"]
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5begg"]
 shader = ExtResource("1_higx7")
 
@@ -29,12 +31,13 @@ scale_max = 50.0
 scale_curve = SubResource("CurveTexture_o0hbk")
 color_ramp = SubResource("GradientTexture1D_l7236")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xyffs"]
-size = Vector2(3.5, 3.5)
-
-[node name="fire" type="Node2D"]
-scale = Vector2(5, 5)
+[node name="FireAdjacentArea" type="Area2D" groups=["fireadjacentarea"]]
+scale = Vector2(3.04, 3.12)
 script = ExtResource("1_wimj4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.35281e-07, 3.82081e-08)
+shape = SubResource("RectangleShape2D_xyffs")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 material = SubResource("ShaderMaterial_5begg")
@@ -46,13 +49,12 @@ trail_sections = 6
 [node name="FireCoreArea" type="Area2D" parent="." groups=["fireparticle"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FireCoreArea"]
+position = Vector2(0, 4.76837e-07)
 shape = SubResource("RectangleShape2D_xyffs")
 
-[node name="FireAdjacentArea" type="Area2D" parent="." groups=["fireadjacentarea"]]
-scale = Vector2(3.04, 3.12)
+[node name="fire" type="Node2D" parent="."]
+script = ExtResource("1_wimj4")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FireAdjacentArea"]
-shape = SubResource("RectangleShape2D_xyffs")
-
-[connection signal="area_entered" from="FireAdjacentArea" to="." method="_on_fire_adjacent_area_area_entered"]
-[connection signal="area_exited" from="FireAdjacentArea" to="." method="_on_fire_adjacent_area_area_exited"]
+[connection signal="area_entered" from="." to="fire" method="_on_fire_adjacent_area_area_entered"]
+[connection signal="area_exited" from="." to="fire" method="_on_fire_adjacent_area_area_exited"]
+[connection signal="body_entered" from="." to="fire" method="_on_fire_adjacent_area_body_entered"]

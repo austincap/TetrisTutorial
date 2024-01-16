@@ -1,0 +1,89 @@
+[gd_scene load_steps=2 format=3 uid="uid://csm5rusjt3lqf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tv0jf"]
+
+[node name="gridmain" type="Node2D"]
+
+[node name="Area2D1" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D1"]
+shape = SubResource("RectangleShape2D_tv0jf")
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(20, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+shape = SubResource("RectangleShape2D_tv0jf")
+
+[node name="Area2D3" type="Area2D" parent="."]
+position = Vector2(40, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
+shape = SubResource("RectangleShape2D_tv0jf")
+
+[node name="Area2D4" type="Area2D" parent="."]
+position = Vector2(60, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D4"]
+shape = SubResource("RectangleShape2D_tv0jf")
+
+[node name="Area2D5" type="Area2D" parent="."]
+position = Vector2(80, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D5"]
+shape = SubResource("RectangleShape2D_tv0jf")
+
+[node name="Area2D6" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D6"]
+shape = SubResource("RectangleShape2D_tv0jf")
+
+[node name="Area2D7" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D7"]
+shape = SubResource("RectangleShape2D_tv0jf")
+
+[node name="Area2D8" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D8"]
+shape = SubResource("RectangleShape2D_tv0jf")
+
+[node name="Area2D9" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D9"]
+shape = SubResource("RectangleShape2D_tv0jf")
+
+[node name="Area2D10" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D10"]
+shape = SubResource("RectangleShape2D_tv0jf")
+
+[node name="Area2D11" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D11"]
+shape = SubResource("RectangleShape2D_tv0jf")
+
+[node name="Area2D12" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D12"]
+shape = SubResource("RectangleShape2D_tv0jf")
+
+[node name="Area2D13" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D13"]
+shape = SubResource("RectangleShape2D_tv0jf")
+
+[node name="Area2D14" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D14"]
+shape = SubResource("RectangleShape2D_tv0jf")
+
+[node name="Area2D15" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D15"]
+shape = SubResource("RectangleShape2D_tv0jf")
+
+[node name="Area2D16" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D16"]
+shape = SubResource("RectangleShape2D_tv0jf")

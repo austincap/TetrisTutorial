@@ -16,8 +16,8 @@ func _on_fire_adjacent_area_area_entered(area):
 		print("wind consumed by fire")
 		fireoxygenation += 1
 		area.windpower -= 1
-	elif area.is_in_group("wood"):
-		print("wind consumed by fire")
+
+
 
 
 func _on_fire_adjacent_area_area_exited(area):
@@ -26,4 +26,11 @@ func _on_fire_adjacent_area_area_exited(area):
 		fireoxygenation += 1
 		area.windpower -= 1
 	elif area.is_in_group("wood"):
-		
+		pass
+
+
+func _on_fire_adjacent_area_body_entered(body):
+	if body.is_in_group("wood"):
+		body.set_meta("onfire", true)
+		print("wood is on fire")
+		get_tree().get_root().get_node("firemakermain").wood_array.append(body)

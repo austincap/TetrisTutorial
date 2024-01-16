@@ -4,5 +4,3 @@
 
 [node name="stickmaker" type="Node2D"]
 script = ExtResource("1_r7jcg")
-
-[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="."]
