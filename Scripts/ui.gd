@@ -13,6 +13,17 @@ class_name UI
 @onready var woodpiece_scene = preload("res://Scenes/woodpiece.tscn")
 var boardinstance = board
 
+var fireButtonPressed = false
+
+func _input(event):
+	if Input.is_action_pressed("click") and fireButtonPressed:
+		var fire = firescene.instantiate()
+		print(event.as_text())
+		fire.position = get_viewport().get_mouse_position()
+		print(get_viewport().get_mouse_position())
+		add_child(fire)
+		fireButtonPressed = false
+	
 func show_game_over():
 	center_container.show()
 
@@ -31,9 +42,8 @@ func _on_windbutton_pressed():
 
 
 func _on_fire_button_pressed():
-	var fire = firescene.instantiate()
-	fire.position = Vector2(220,100)
-	add_child(fire)
+	fireButtonPressed = true
+
 
 
 
@@ -86,11 +96,11 @@ func _on_stick_button_pressed():
 		else:
 			pass
 		if (((x+1)%5) == 0):
-			print("end of row")
+			#print("end of row")
 			nextpiece_position += Vector2(0.0, 20.0)
 			nextpiece_position -= Vector2(20.0, 0.0)*5
 		else:
-			print("move right")
+			#print("move right")
 			nextpiece_position += Vector2(20.0, 0.0)
 	newstick.global_position = Vector2(140,100)
 

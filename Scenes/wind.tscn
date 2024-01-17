@@ -4,7 +4,7 @@
 [ext_resource type="Shader" path="res://Scenes/fire.gdshader" id="2_hd7sw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xyffs"]
-size = Vector2(3.5, 3.5)
+size = Vector2(20, 18)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5begg"]
 shader = ExtResource("2_hd7sw")
@@ -25,6 +25,7 @@ color = Color(0.909804, 0.909804, 0.909804, 1)
 
 [node name="wind" type="Area2D" groups=["wind"]]
 script = ExtResource("1_2l5rt")
+metadata/windpower = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_xyffs")

@@ -1,5 +1,5 @@
 extends Node
-var fireoxygenation = 1
+#var fireoxygenation = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -7,29 +7,44 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+
+var tick = 0
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _physics_process(delta):
+	tick +=1
+	#every quarter second process interactions
+	if tick%15 == 0:
+		pass
+		if tick == 60:
+			self.set_meta("fireoxygenation", self.get_meta("fireoxygenation") - 1 )
+			if get_meta("fireoxygenation") <= 0:
+				queue_free()
+			tick = 0
 
 
-func _on_fire_adjacent_area_area_entered(area):
+
+
+
+
+
+func _on_area_entered(area):
 	if area.is_in_group("wind"):
 		print("wind consumed by fire")
-		fireoxygenation += 1
+		self.set_meta("fireoxygenation", self.get_meta("fireoxygenation")+1 )
 		area.windpower -= 1
+		area.set_meta("windpower", area.get_meta("windpower")-1 )
 
-
-
-
-func _on_fire_adjacent_area_area_exited(area):
+func _on_area_exited(area):
 	if area.is_in_group("wind"):
 		print("wind consumed by fire")
-		fireoxygenation += 1
+		self.set_meta("fireoxygenation", self.get_meta("fireoxygenation")+1 )
 		area.windpower -= 1
+		area.set_meta("windpower", area.get_meta("windpower")-1 )
 	elif area.is_in_group("wood"):
 		pass
 
 
-func _on_fire_adjacent_area_body_entered(body):
+func _on_body_entered(body):
 	if body.is_in_group("wood"):
 		body.set_meta("onfire", true)
 		print("wood is on fire")

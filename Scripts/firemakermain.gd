@@ -18,13 +18,15 @@ func _physics_process(delta):
 	#every quarter second process interactions
 	if tick%15 == 0:
 		tetromino_scene.instantiate()
-#		process_fire_wind_interactions()
-#		process_fire_sap_interactions()
-		process_fire_wood_interactions()
+		#process_fire_wind_interactions()
+		#process_fire_sap_interactions()
+		#process_fire_wood_interactions()
 		pass
 		if tick == 60:
 			tick = 0
-			#process_fire_wood_interactions()
+			process_fire_wood_interactions()
+
+
 
 func process_fire_wood_interactions():
 	var i = 0

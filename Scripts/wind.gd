@@ -7,6 +7,6 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	if windpower <= 0:
+func _physics_process(delta):
+	if (windpower <= 0) or (get_meta("windpower") <= 0):
 		queue_free()
