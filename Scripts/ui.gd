@@ -5,7 +5,7 @@ class_name UI
 @onready var center_container = $CenterContainer
 @onready var windscene = preload("res://Scenes/wind.tscn")
 @onready var firestarterscene = preload("res://Scenes/firestarter.tscn")
-@onready var explosivescene = preload("res://Scenes/explosive_sap.tscn")
+@onready var sapscene = preload("res://Scenes/explosive_sap.tscn")
 @onready var firescene = preload("res://Scenes/fire.tscn")
 @onready var piece_spawner = preload("res://Scripts/piece_spawner.gd")
 @onready var board = preload("res://Scripts/board.gd")
@@ -14,6 +14,8 @@ class_name UI
 var boardinstance = board
 
 var fireButtonPressed = false
+var firestarterButtonPressed = false
+var sapButtonPressed = false
 
 func _input(event):
 	if Input.is_action_pressed("click") and fireButtonPressed:
@@ -23,6 +25,20 @@ func _input(event):
 		print(get_viewport().get_mouse_position())
 		add_child(fire)
 		fireButtonPressed = false
+	if Input.is_action_pressed("click") and firestarterButtonPressed:
+		var firestarter = firestarterscene.instantiate()
+		print(event.as_text())
+		firestarter.position = get_viewport().get_mouse_position()
+		print(get_viewport().get_mouse_position())
+		add_child(firestarter)
+		firestarterButtonPressed = false
+	if Input.is_action_pressed("click") and sapButtonPressed:
+		var sap = sapscene.instantiate()
+		print(event.as_text())
+		sap.position = get_viewport().get_mouse_position()
+		print(get_viewport().get_mouse_position())
+		add_child(sap)
+		sapButtonPressed = false
 	
 func show_game_over():
 	center_container.show()
@@ -44,7 +60,11 @@ func _on_windbutton_pressed():
 func _on_fire_button_pressed():
 	fireButtonPressed = true
 
+func _on_firestarter_pressed():
+	firestarterButtonPressed = true
 
+func _on_sap_button_pressed():
+	sapButtonPressed = true
 
 
 func _on_stick_button_pressed():
@@ -106,9 +126,5 @@ func _on_stick_button_pressed():
 
 	return newstick
 
-
-
-
-	
 
 

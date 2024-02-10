@@ -80,7 +80,42 @@ offset_bottom = 27.7954
 scale = Vector2(0.162913, 0.210873)
 text = "stick"
 
+[node name="FirestarterButton" type="Button" parent="."]
+offset_left = 94.0
+offset_top = 312.0
+offset_right = 102.0
+offset_bottom = 320.0
+scale = Vector2(4.51485, 3.34197)
+
+[node name="Label" type="Label" parent="FirestarterButton"]
+layout_mode = 0
+offset_left = 1.55044
+offset_top = 1.79538
+offset_right = 66.5504
+offset_bottom = 27.7954
+scale = Vector2(0.162913, 0.210873)
+text = "firestarter"
+
+[node name="SapButton" type="Button" parent="."]
+offset_left = 94.0
+offset_top = 363.0
+offset_right = 102.0
+offset_bottom = 371.0
+scale = Vector2(4.51485, 3.34197)
+
+[node name="Label" type="Label" parent="SapButton"]
+layout_mode = 0
+offset_left = 1.55044
+offset_top = 1.79538
+offset_right = 66.5504
+offset_bottom = 27.7954
+scale = Vector2(0.162913, 0.210873)
+text = "sap
+"
+
 [connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="WindButton" to="." method="_on_windbutton_pressed"]
 [connection signal="pressed" from="FireButton" to="." method="_on_fire_button_pressed"]
 [connection signal="pressed" from="StickButton" to="." method="_on_stick_button_pressed"]
+[connection signal="pressed" from="FirestarterButton" to="." method="_on_firestarter_pressed"]
+[connection signal="pressed" from="SapButton" to="." method="_on_sap_button_pressed"]

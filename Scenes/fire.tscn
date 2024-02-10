@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/firebehavior.gd" id="1_wimj4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xyffs"]
-size = Vector2(14.6667, 13.3203)
+size = Vector2(12.3333, 8.12216)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5begg"]
 shader = ExtResource("1_higx7")
@@ -16,30 +16,31 @@ colors = PackedColorArray(1, 1, 1, 1, 0.952941, 0.592157, 0.443137, 1, 1, 0, 0.0
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_l7236"]
 gradient = SubResource("Gradient_pdu8k")
 
-[sub_resource type="Curve" id="Curve_hdrjm"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.975904, 0.252632), 0.0, 0.0, 0, 0]
+[sub_resource type="Curve" id="Curve_wn8t8"]
+_data = [Vector2(0.0137931, 0.347368), 0.0, 0.0, 0, 0, Vector2(1, 0.157895), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="CurveTexture" id="CurveTexture_o0hbk"]
-curve = SubResource("Curve_hdrjm")
+curve = SubResource("Curve_wn8t8")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kkiob"]
 particle_flag_disable_z = true
 gravity = Vector3(0, -30, 0)
 orbit_velocity_min = -0.25
 orbit_velocity_max = 0.1
-scale_max = 50.0
+scale_min = 0.3
+scale_max = 40.0
 scale_curve = SubResource("CurveTexture_o0hbk")
 color_ramp = SubResource("GradientTexture1D_l7236")
 
 [node name="FireAdjacentArea" type="Area2D" groups=["fireadjacentarea"]]
-scale = Vector2(1, 1.026)
+z_index = -20
 script = ExtResource("1_wimj4")
 metadata/fireoxygenation = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = -7
-position = Vector2(1, -0.487329)
+position = Vector2(1.5, -5.36062)
 scale = Vector2(3, 3)
 shape = SubResource("RectangleShape2D_xyffs")
 
@@ -53,7 +54,6 @@ trail_sections = 6
 [node name="FireCoreArea" type="Area2D" parent="." groups=["fireparticle"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FireCoreArea"]
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_xyffs")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

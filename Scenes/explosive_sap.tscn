@@ -1,6 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://d0p1lkf4un2xo"]
-
-[ext_resource type="Script" path="res://Scenes/explosive_sap.gd" id="1_r21fi"]
+[gd_scene load_steps=5 format=3 uid="uid://d0p1lkf4un2xo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o3fqb"]
 
@@ -19,12 +17,9 @@ height = 302
 color_ramp = SubResource("Gradient_0lmkr")
 noise = SubResource("FastNoiseLite_ets6y")
 
-[node name="explosive_sap" type="Node2D"]
-script = ExtResource("1_r21fi")
+[node name="explosive_sap" type="Area2D" groups=["sap"]]
 
-[node name="Area2D" type="Area2D" parent="." groups=["explosive_sap"]]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_o3fqb")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
@@ -34,5 +29,3 @@ texture = SubResource("NoiseTexture2D_s3sor")
 texture_offset = Vector2(10.135, 11.07)
 texture_scale = Vector2(8.92, 8.92)
 polygon = PackedVector2Array(-11, 10, -11, -11, 11, -11, 11, 10, 0, 10)
-
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -9,8 +9,9 @@ gravity_scale = 0.2
 max_contacts_reported = 64
 lock_rotation = true
 freeze_mode = 1
-metadata/fuel = 4
+metadata/fuel = 25
 metadata/onfire = false
+metadata/heat = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_mh2q1")

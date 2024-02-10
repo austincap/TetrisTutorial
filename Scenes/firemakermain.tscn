@@ -7,7 +7,7 @@
 size = Vector2(293.5, 45)
 
 [node name="firemakermain" type="Node2D"]
-position = Vector2(144, 337)
+position = Vector2(144, 336)
 script = ExtResource("1_dv664")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -19,5 +19,5 @@ position = Vector2(17, -11)
 position = Vector2(25, -15)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-6, -43)
+position = Vector2(8, -31)
 shape = SubResource("RectangleShape2D_5111q")
