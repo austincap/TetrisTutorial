@@ -34,7 +34,7 @@ scale_curve = SubResource("CurveTexture_o0hbk")
 color_ramp = SubResource("GradientTexture1D_l7236")
 
 [node name="FireAdjacentArea" type="Area2D" groups=["fireadjacentarea"]]
-z_index = -20
+z_index = 36
 script = ExtResource("1_wimj4")
 metadata/fireoxygenation = 3
 

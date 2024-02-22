@@ -17,14 +17,14 @@ func _physics_process(delta):
 	tick +=1
 	#every quarter second process interactions
 	if tick%15 == 0:
-		tetromino_scene.instantiate()
+		#tetromino_scene.instantiate()
 		#process_fire_wind_interactions()
 		#process_fire_sap_interactions()
 		#process_fire_wood_interactions()
 		pass
 		if tick == 60:
-			tick = 0
 			process_fire_wood_interactions()
+			tick = 0
 
 
 
@@ -37,7 +37,7 @@ func process_fire_wood_interactions():
 			if woodpiece.get_meta("heat") < 4:
 				woodpiece.set_meta("onfire", false)
 			else:
-				var earlier_fuel =  woodpiece.get_meta("fuel")
+				var earlier_fuel = woodpiece.get_meta("fuel")
 				woodpiece.set_meta("fuel", earlier_fuel-1)
 				#print(earlier_fuel)
 				var modulate_valuate = 1-((25.0-earlier_fuel)/25.0)

@@ -16,6 +16,7 @@ var boardinstance = board
 var fireButtonPressed = false
 var firestarterButtonPressed = false
 var sapButtonPressed = false
+var windButtonPressed = false
 
 func _input(event):
 	if Input.is_action_pressed("click") and fireButtonPressed:
@@ -39,6 +40,13 @@ func _input(event):
 		print(get_viewport().get_mouse_position())
 		add_child(sap)
 		sapButtonPressed = false
+	if Input.is_action_pressed("click") and windButtonPressed:
+		var wind = windscene.instantiate()
+		wind.position = get_viewport().get_mouse_position()
+		var tween = create_tween()
+		add_child(wind)
+		tween.tween_property(wind, "position:x", 500, 7.0)
+		tween.play()
 	
 func show_game_over():
 	center_container.show()
@@ -49,13 +57,7 @@ func _on_button_pressed():
 
 
 func _on_windbutton_pressed():
-	var wind = windscene.instantiate()
-	wind.position = Vector2(20,100)
-	var tween = create_tween()
-	add_child(wind)
-	tween.tween_property(wind, "position:x", 500, 7.0)
-	tween.play()
-
+	windButtonPressed = true
 
 func _on_fire_button_pressed():
 	fireButtonPressed = true

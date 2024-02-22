@@ -37,39 +37,34 @@ text = "RESTART"
 [node name="WindButton" type="Button" parent="."]
 offset_left = 2.0
 offset_top = 315.0
-offset_right = 10.0
-offset_bottom = 323.0
-scale = Vector2(4.51485, 3.34197)
+offset_right = 53.825
+offset_bottom = 344.765
 
 [node name="Label" type="Label" parent="WindButton"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
-scale = Vector2(0.162913, 0.210873)
 text = "wind"
 
 [node name="FireButton" type="Button" parent="."]
 offset_left = 6.0
 offset_top = 364.0
-offset_right = 14.0
-offset_bottom = 372.0
-scale = Vector2(4.51485, 3.34197)
+offset_right = 55.09
+offset_bottom = 392.45
 
 [node name="Label" type="Label" parent="FireButton"]
 layout_mode = 0
-offset_left = 1.55044
-offset_top = 1.79538
-offset_right = 66.5504
-offset_bottom = 27.7954
-scale = Vector2(0.162913, 0.210873)
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 43.0
+offset_bottom = 28.0
 text = "fire"
 
 [node name="StickButton" type="Button" parent="."]
 offset_left = 9.0
 offset_top = 423.0
-offset_right = 17.0
-offset_bottom = 431.0
-scale = Vector2(4.51485, 3.34197)
+offset_right = 64.07
+offset_bottom = 455.415
 
 [node name="Label" type="Label" parent="StickButton"]
 layout_mode = 0
@@ -77,15 +72,13 @@ offset_left = 1.55044
 offset_top = 1.79538
 offset_right = 66.5504
 offset_bottom = 27.7954
-scale = Vector2(0.162913, 0.210873)
 text = "stick"
 
 [node name="FirestarterButton" type="Button" parent="."]
 offset_left = 94.0
 offset_top = 312.0
-offset_right = 102.0
-offset_bottom = 320.0
-scale = Vector2(4.51485, 3.34197)
+offset_right = 156.225
+offset_bottom = 340.485
 
 [node name="Label" type="Label" parent="FirestarterButton"]
 layout_mode = 0
@@ -93,23 +86,20 @@ offset_left = 1.55044
 offset_top = 1.79538
 offset_right = 66.5504
 offset_bottom = 27.7954
-scale = Vector2(0.162913, 0.210873)
 text = "firestarter"
 
 [node name="SapButton" type="Button" parent="."]
 offset_left = 94.0
 offset_top = 363.0
-offset_right = 102.0
-offset_bottom = 371.0
-scale = Vector2(4.51485, 3.34197)
+offset_right = 131.39
+offset_bottom = 392.475
 
 [node name="Label" type="Label" parent="SapButton"]
 layout_mode = 0
-offset_left = 1.55044
-offset_top = 1.79538
-offset_right = 66.5504
-offset_bottom = 27.7954
-scale = Vector2(0.162913, 0.210873)
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 44.0
+offset_bottom = 30.0
 text = "sap
 "
 

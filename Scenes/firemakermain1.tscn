@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dop57oyad6sgb"]
+
+[ext_resource type="Script" path="res://Scripts/firemakermain.gd" id="1_1c505"]
+[ext_resource type="PackedScene" uid="uid://ct2meksk8huhw" path="res://Scenes/ui.tscn" id="2_n73je"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5111q"]
+size = Vector2(293.5, 45)
+
+[node name="firemakermain" type="Node2D"]
+position = Vector2(144, 336)
+script = ExtResource("1_1c505")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(17, -11)
+
+[node name="UI" parent="." instance=ExtResource("2_n73je")]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(25, -15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(8, -31)
+shape = SubResource("RectangleShape2D_5111q")

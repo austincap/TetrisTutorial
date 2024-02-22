@@ -17,6 +17,7 @@ func _physics_process(delta):
 				wood.set_meta("heat", wood.get_meta("heat")+1)
 		if tick == 60:
 			self.set_meta("fireoxygenation", self.get_meta("fireoxygenation") - 1 )
+			$GPUParticles2D.process_material.scale_max = 40*(1+0.05*self.get_meta("fireoxygenation"))
 			if get_meta("fireoxygenation") <= 0:
 				for wood in firewood_array:
 					if is_instance_valid(wood):

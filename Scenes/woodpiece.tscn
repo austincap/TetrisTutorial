@@ -1,8 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://bhi5yueqgm1ob"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mh2q1"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wvqm5"]
 
 [node name="woodpiece" type="RigidBody2D" groups=["wood"]]
+z_index = -6
 mass = 0.1
 inertia = 16.9
 gravity_scale = 0.2
@@ -14,7 +15,7 @@ metadata/onfire = false
 metadata/heat = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_mh2q1")
+shape = SubResource("RectangleShape2D_wvqm5")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 color = Color(0.298039, 0.231373, 0.0352941, 1)
