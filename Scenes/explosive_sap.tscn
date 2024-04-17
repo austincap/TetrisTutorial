@@ -23,9 +23,6 @@ noise = SubResource("FastNoiseLite_ets6y")
 shape = SubResource("RectangleShape2D_o3fqb")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
-position = Vector2(0, 9.53674e-07)
 color = Color(0.886275, 0.960784, 0.0235294, 1)
 texture = SubResource("NoiseTexture2D_s3sor")
-texture_offset = Vector2(10.135, 11.07)
-texture_scale = Vector2(8.92, 8.92)
 polygon = PackedVector2Array(-11, 10, -11, -11, 11, -11, 11, 10, 0, 10)

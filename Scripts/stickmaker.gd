@@ -56,7 +56,7 @@ func _ready():
 		else:
 			print("move right")
 			nextpiece_position += Vector2(20.0, 0.0)
-	newstick.global_position = Vector2(140,100)
+	newstick.global_position = Vector2(0,0)
 	return newstick
 
 

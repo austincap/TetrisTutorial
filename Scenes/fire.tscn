@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://bblb0i57yr38"]
+[gd_scene load_steps=11 format=3 uid="uid://bblb0i57yr38"]
 
 [ext_resource type="Shader" path="res://Scenes/fire.gdshader" id="1_higx7"]
 [ext_resource type="Script" path="res://Scripts/firebehavior.gd" id="1_wimj4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xyffs"]
-size = Vector2(12.3333, 8.12216)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5begg"]
 shader = ExtResource("1_higx7")
@@ -33,6 +32,9 @@ scale_max = 40.0
 scale_curve = SubResource("CurveTexture_o0hbk")
 color_ramp = SubResource("GradientTexture1D_l7236")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_d4qap"]
+radius = 5.0
+
 [node name="FireAdjacentArea" type="Area2D" groups=["fireadjacentarea"]]
 z_index = 36
 script = ExtResource("1_wimj4")
@@ -40,8 +42,6 @@ metadata/fireoxygenation = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = -7
-position = Vector2(1.5, -5.36062)
-scale = Vector2(3, 3)
 shape = SubResource("RectangleShape2D_xyffs")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
@@ -54,7 +54,7 @@ trail_sections = 6
 [node name="FireCoreArea" type="Area2D" parent="." groups=["fireparticle"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FireCoreArea"]
-shape = SubResource("RectangleShape2D_xyffs")
+shape = SubResource("CircleShape2D_d4qap")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]

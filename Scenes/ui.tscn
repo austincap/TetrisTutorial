@@ -35,10 +35,10 @@ layout_mode = 2
 text = "RESTART"
 
 [node name="WindButton" type="Button" parent="."]
-offset_left = 2.0
-offset_top = 315.0
-offset_right = 53.825
-offset_bottom = 344.765
+offset_left = 35.0
+offset_top = 370.0
+offset_right = 86.825
+offset_bottom = 399.765
 
 [node name="Label" type="Label" parent="WindButton"]
 layout_mode = 0
@@ -47,10 +47,10 @@ offset_bottom = 23.0
 text = "wind"
 
 [node name="FireButton" type="Button" parent="."]
-offset_left = 6.0
-offset_top = 364.0
-offset_right = 55.09
-offset_bottom = 392.45
+offset_left = 39.0
+offset_top = 419.0
+offset_right = 88.09
+offset_bottom = 447.45
 
 [node name="Label" type="Label" parent="FireButton"]
 layout_mode = 0
@@ -61,10 +61,10 @@ offset_bottom = 28.0
 text = "fire"
 
 [node name="StickButton" type="Button" parent="."]
-offset_left = 9.0
-offset_top = 423.0
-offset_right = 64.07
-offset_bottom = 455.415
+offset_left = 42.0
+offset_top = 478.0
+offset_right = 97.07
+offset_bottom = 510.415
 
 [node name="Label" type="Label" parent="StickButton"]
 layout_mode = 0
@@ -75,10 +75,10 @@ offset_bottom = 27.7954
 text = "stick"
 
 [node name="FirestarterButton" type="Button" parent="."]
-offset_left = 94.0
-offset_top = 312.0
-offset_right = 156.225
-offset_bottom = 340.485
+offset_left = 127.0
+offset_top = 367.0
+offset_right = 189.225
+offset_bottom = 395.485
 
 [node name="Label" type="Label" parent="FirestarterButton"]
 layout_mode = 0
@@ -89,10 +89,10 @@ offset_bottom = 27.7954
 text = "firestarter"
 
 [node name="SapButton" type="Button" parent="."]
-offset_left = 94.0
-offset_top = 363.0
-offset_right = 131.39
-offset_bottom = 392.475
+offset_left = 127.0
+offset_top = 418.0
+offset_right = 164.39
+offset_bottom = 447.475
 
 [node name="Label" type="Label" parent="SapButton"]
 layout_mode = 0

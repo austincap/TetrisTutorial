@@ -37,8 +37,9 @@ func _on_area_entered(area):
 	elif area.is_in_group("sap"):
 		print("fire touched sap")
 		var wind = Windscene.instantiate()
-		wind.global_position = self.global_position + Vector2(-189.0, -302.0)
-		add_child(wind)
+		var cool = self.global_position*get_viewport().get_screen_transform().affine_inverse()
+		wind.global_position = cool
+		print(cool)
 		var tween = create_tween()
 		add_child(wind)
 		tween.tween_property(wind, "position:x", 500, 7.0)

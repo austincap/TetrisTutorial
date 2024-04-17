@@ -47,7 +47,7 @@ func process_fire_wood_interactions():
 				#print(woodpiece.get_meta("fuel"))
 				if woodpiece.get_meta("fuel") < 0:
 					var firescene = Firescene.instantiate()
-					firescene.global_position = woodpiece.global_position + Vector2(-189.0, -302.0)
+					firescene.global_position = woodpiece.global_position
 					add_child(firescene)
 					print(woodpiece.global_position)
 					wood_array.erase(woodpiece)

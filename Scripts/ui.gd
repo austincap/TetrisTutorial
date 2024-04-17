@@ -124,7 +124,7 @@ func _on_stick_button_pressed():
 		else:
 			#print("move right")
 			nextpiece_position += Vector2(20.0, 0.0)
-	newstick.global_position = Vector2(140,100)
+	newstick.global_position = Vector2(180,0)
 
 	return newstick
 
